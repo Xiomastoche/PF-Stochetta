@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
 import App from './App'
 
 const firebaseConfig = {
@@ -14,7 +14,7 @@ const firebaseConfig = {
 
 export const appFirestore = initializeApp(firebaseConfig);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
