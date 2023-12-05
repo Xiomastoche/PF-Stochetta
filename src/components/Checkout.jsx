@@ -6,6 +6,7 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
 const Checkout = () => {
   const { cart, clearCart, getTotal } = useContext (CartContext);
+  const [isFormComplete, setIsFormComplete] = useState(false);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -26,8 +27,14 @@ const Checkout = () => {
       ...prevFormData,
       [name]: value,
     }));
-  };
 
+    // Verificar si todos los campos del formulario están completos
+    const { firstName, lastName, email, phone } = formData;
+    const formComplete = firstName !== '' && lastName !== '' && email !== '' && phone !== '';
+    setIsFormComplete(formComplete);
+
+  };
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     
@@ -78,34 +85,35 @@ const Checkout = () => {
             <Form onSubmit={handleSubmit}>
             <Row>
             <Form.Group as={Col} className="mb-3" controlId='firstName'>
-                <Form.Label>Nombre:</Form.Label>
+                <Form.Label>Nombre *</Form.Label>
                 <Form.Control type='text' name='firstName' value={formData.firstName} onChange={handleInputChange} />
             </Form.Group>
             <Form.Group as={Col} className="mb-3" controlId='lastName'>
-                <Form.Label>Apellido:</Form.Label>
+                <Form.Label>Apellido *</Form.Label>
                 <Form.Control type='text' name='lastName' value={formData.lastName} onChange={handleInputChange} />
             </Form.Group>
             </Row>
             <Form.Group className="mb-3" controlId='email'>
-                <Form.Label>Email:</Form.Label>
+                <Form.Label>Email *</Form.Label>
                 <Form.Control type='email' name='email' value={formData.email} onChange={handleInputChange} />
             </Form.Group>
             <Form.Group className="mb-3" controlId='phone'>
-                <Form.Label>Teléfono:</Form.Label>
+                <Form.Label>Teléfono *</Form.Label>
                 <Form.Control type='text' name='phone' value={formData.phone} onChange={handleInputChange} />
             </Form.Group>
             <Row>
             <Form.Group as={Col} className="mb-3" controlId='address'>
-                <Form.Label>Dirección:</Form.Label>
+                <Form.Label>Dirección</Form.Label>
                 <Form.Control type='text' name='address' onChange={handleInputChange} />
             </Form.Group>
             <Form.Group as={Col} className="mb-3" controlId='postalCode'>
-                <Form.Label>Código Postal:</Form.Label>
+                <Form.Label>Código Postal</Form.Label>
                 <Form.Control type='text' name='postalCode' onChange={handleInputChange} />
             </Form.Group>
+            <p className='text-muted pt-2'>* Rellene los campos obligatorios para concretar la compra.</p>
             </Row>
             <div className='d-grid'>
-                <Button variant='primary' className='rounded-0 mt-3 mb-2' type='submit'>TERMINAR COMPRA</Button>
+                <Button variant='primary' className='rounded-0 mt-4 mb-3' type='submit' disabled={!isFormComplete}>TERMINAR COMPRA</Button>
             </div>
             </Form>
             </Col>
