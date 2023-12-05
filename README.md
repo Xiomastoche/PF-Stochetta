@@ -2,7 +2,7 @@
 
 Este proyecto fue creado para el curso de React dictado por [Coderhouse](https://www.coderhouse.com/) 
 
-TecnoPoint es un ecommerce especializado en productos tecnológicos. Ofrece una variedad de productos distribuidos en categorías específicas. 
+TecnoPoint es un ecommerce diseñado para la venta de productos tecnológicos. Ofrece una variedad de productos distribuidos en categorías específicas. La aplicación utiliza React para la interfaz de usuario, React Bootstrap para estilos y componentes, React Router Dom para la navegación entre páginas y Firebase para el almacenamiento de datos, autenticación y hospedaje. 
 
 ## Descripcion del Proyecto 
 
@@ -17,7 +17,7 @@ TecnoPoint es un ecommerce especializado en productos tecnológicos. Ofrece una 
 
 ## Herramientas utilizadas
 
-- [React](https://es.reactjs.org/) 
+- [React](https://es.reactjs.org/)  
 - [React-Bootstrap](https://react-bootstrap.netlify.app/)
 - [React-router-dom](https://v5.reactrouter.com/)
 - [Firebase](https://firebase.google.com/)
@@ -27,8 +27,8 @@ TecnoPoint es un ecommerce especializado en productos tecnológicos. Ofrece una 
 Asegurate de tener [Node.js](https://nodejs.org/en) instalado.
 
 1. Clona este repositorio de github.
-2. Instala las dependencias con npm install en la terminal
-3. Y luego, corre el comando npm run dev
+2. Instala las dependencias: npm install en la terminal
+3. Y luego correr el comando: npm run dev
 
 ## Creador
 
